@@ -6,7 +6,9 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,15 @@ Route::delete('/doctor/delete/{doctor}',[DoctorController::class,'destroy'])->na
 //booking
 Route::get('/booking/create/{id}',[BookingController::class,'create'])->name('booking.create');
 Route::post('/booking/store/{id}',[BookingController::class,'store'])->name('booking.store');
+
+//users
+Route::get('/user/index',[UserController::class,'index2'])->name('user.index2');
+Route::get('/user/create',[UserController::class,'create'])->name('user.create');
+Route::post('/user/store',[UserController::class,'store'])->name('user.store');
+Route::get('/user/edit/{user}',[UserController::class,'edit'])->name('user.edit');
+Route::put('/user/update/{user}',[UserController::class,'update'])->name('user.update');
+Route::delete('/user/delete/{user}',[UserController::class,'destroy'])->name('user.delete');
+
 
 
 Route::get('/dashboard', [AdminDashboardController::class,'dashboard'])
